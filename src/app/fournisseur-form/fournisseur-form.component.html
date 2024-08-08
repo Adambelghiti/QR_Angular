@@ -1,0 +1,10 @@
+<div class="form-container">
+  <h1>{{ fournisseurId === null ? 'Create New Fournisseur' : 'Edit Fournisseur' }}</h1>
+  <form [formGroup]="fournisseurForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" />
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" required />
+    <button type="submit">Save</button>
+  </form>
+  <button (click)="navigateTo('/fournisseurs')" class="btn back-button">Précédent</button>
+</div>

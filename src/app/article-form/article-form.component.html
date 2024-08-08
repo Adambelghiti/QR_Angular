@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Create New Article</h1>
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="serialNumber" />
+    <label>Name:</label>
+    <input type="text" formControlName="nom" required />
+    <label>Length:</label>
+    <input type="text" formControlName="longueur" required />
+    <label>Width:</label>
+    <input type="text" formControlName="largeur" required />
+    <label>Height:</label>
+    <input type="text" formControlName="hauteur" required />
+    <label>Category:</label>
+    <input type="text" formControlName="categorie" required />
+    <label>Warehouse:</label>
+    <select formControlName="entrepot">
+      <!-- Assuming entrepots is populated in the component -->
+      <option *ngFor="let entrepot of entrepots" [value]="entrepot.id">{{ entrepot.nom }}</option>
+    </select>
+    <label>Manufacturer:</label>
+    <select formControlName="fabricant">
+      <!-- Assuming fabricants is populated in the component -->
+      <option *ngFor="let fabricant of fabricants" [value]="fabricant.id">{{ fabricant.name }}</option>
+    </select>
+    <label>Supplier:</label>
+    <select formControlName="fournisseur">
+      <!-- Assuming fournisseurs is populated in the component -->
+      <option *ngFor="let fournisseur of fournisseurs" [value]="fournisseur.id">{{ fournisseur.name }}</option>
+    </select>
+    <button type="submit">Save</button>
+  </form>
+</div>
